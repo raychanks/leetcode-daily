@@ -31,7 +31,13 @@ class DSU:
     @staticmethod
     def find_set(node) -> DSUNode:
         cur_node = node
+        compress_path_candidates = []
+
         while cur_node.parent != cur_node:
+            compress_path_candidates.append(cur_node)
             cur_node = cur_node.parent
-        node.parent = cur_node
+
+        for n in compress_path_candidates:
+            n.parent = cur_node
+
         return cur_node

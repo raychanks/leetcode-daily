@@ -19,7 +19,7 @@ def generate_file(question_name: str):
 
     dir_path = Path(f"solutions/{month}_{year}/{filename}")
     if not dir_path.exists():
-        dir_path.mkdir()
+        dir_path.mkdir(parents=True)
 
     file_path = dir_path / "solution.py"
     if file_path.exists():

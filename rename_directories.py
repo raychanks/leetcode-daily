@@ -17,7 +17,13 @@ def to_lower_snake_case(s: str):
     """Convert the string to a lower snake case, removing
     the first occurrance of ``.``."""
 
-    return s.lower().replace(".", "", 1).replace(" ", "_")
+    replace_with_underscore = [" - ", "-", " "]
+
+    s = s.lower().replace(".", "", 1)
+    for repl in replace_with_underscore:
+        s = s.replace(repl, "_")
+
+    return s
 
 
 if __name__ == "__main__":

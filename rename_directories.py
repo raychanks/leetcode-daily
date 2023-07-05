@@ -23,7 +23,9 @@ def to_lower_snake_case(s: str):
     for repl in replace_with_underscore:
         s = s.replace(repl, "_")
 
-    return s
+    s = s.replace("'", "")
+
+    return s.rstrip("?!")
 
 
 if __name__ == "__main__":
